@@ -101,6 +101,14 @@ class Affiliated_Links {
 		$this->load_dom_document( $content );
 		$links = $this->load_links();
 
+		foreach ( $links as $key => $link ) {
+			$links[$key]['replace'] = $this->link_filter( $link );
+		}
+
+		foreach ( $links as $link ) {
+			$content = str_replace( $link['search'], $link['replace'], $content );
+		}
+
 		return $content;
 
 	}
@@ -143,7 +151,9 @@ class Affiliated_Links {
 		$elements = $this->document->getElementsByTagName( 'a' );
 
 		foreach ( $elements as $link ) {
-			$links[] = $link->getAttribute( 'href' );
+			$links[] = array(
+				'search' => $link->getAttribute( 'href' ),
+			);
 		}
 
 		return $links;
