@@ -16,7 +16,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Affiliated_Links {
 
+	/**
+	 * @var $instance
+	 * @access public
+	 */
+	public static $instance = null;
+
 	public function __contruct() {}
+
+	/**
+	 * Get Instance of This Class
+	 *
+	 * @return Affiliated_Links
+	 */
+	public static function instance() {
+
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+
+	}
 
 	/**
 	 * Content Filters
