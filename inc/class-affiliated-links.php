@@ -19,11 +19,15 @@ class Affiliated_Links {
 	 */
 	private $document;
 
-
 	/**
 	 * Constructor
 	 */
-	public function __contruct() {}
+	public function __construct() {
+
+		$this->content_filters();
+		$this->link_filters();
+
+	}
 
 	/**
 	 * Get Instance of This Class
