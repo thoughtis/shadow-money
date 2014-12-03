@@ -95,7 +95,13 @@ class Affiliated_Links {
 	 * @return string $content
 	 */
 	public function content_filter( $content ) {
+
+		if ( empty( $content ) ) return $content;
+
+		$this->load_dom_document( $content );
+
 		return $content;
+
 	}
 
 	/**
@@ -110,8 +116,20 @@ class Affiliated_Links {
 
 	/**
 	 * Load DOMDocument
+	 *
+	 * @param  string $content
 	 */
-	private function load_dom_document() {}
+	private function load_dom_document( $content ) {
+
+		$this->document = new DOMDocument();
+
+		libxml_use_internal_errors( true );
+		$this->document->loadHTML( $content );
+		libxml_clear_errors();
+
+		$this->document->preserveWhiteSpace = false;
+
+	}
 
 	/**
 	 * Find Links
