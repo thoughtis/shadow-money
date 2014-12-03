@@ -17,11 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Affiliated_Links {
 
 	/**
-	 * @var $instance
+	 * @var $instance Affiliated_Links
 	 * @access public
 	 */
 	public static $instance = null;
 
+	/**
+	 * @var $document DOMDocument
+	 * @access private
+	 */
+	private $document;
+
+
+	/**
+	 * Constructor
+	 */
 	public function __contruct() {}
 
 	/**
