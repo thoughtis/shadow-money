@@ -24,8 +24,8 @@ class Affiliated_Links {
 	 */
 	public function __construct() {
 
-		$this->content_filters();
-		$this->link_filters();
+		$this->content_filter_locations();
+		$this->link_filter_locations();
 
 	}
 
@@ -45,23 +45,40 @@ class Affiliated_Links {
 	}
 
 	/**
-	 * Content Filters
+	 * Content Filter Locations
 	 */
-	public function content_filters() {
+	public function content_filter_locations() {
 
-		$filters = array(
+		$locations = array(
 			'the_content',
 			'the_content_feed',
 			'comment_text',
 			'comment_text_rss',
 		);
 
-		$filters = apply_filters( 'affiliated_content_filters', $filters );
+		$locations = apply_filters( 'affiliated_content_locations', $locations );
 
-		if ( empty( $filters ) ) return;
+		if ( empty( $locations ) ) return;
 
-		foreach ( $filters as $filter ) {
-			add_filter( $filter, array( $this, 'content_filter' ) );
+		foreach ( $locations as $location ) {
+			add_filter( $location, array( $this, 'content_filter' ) );
+		}
+
+	}
+
+	/**
+	 * Link Filter Locations
+	 */
+	public function link_filter_locations() {
+
+		$locations = array();
+
+		$locations = apply_filters( 'affiliated_link_locations', $locations );
+
+		if ( empty( $locations ) ) return;
+
+		foreach ( $locations as $location ) {
+			add_filter( $location, array( $this, 'link_filter' ) );
 		}
 
 	}
