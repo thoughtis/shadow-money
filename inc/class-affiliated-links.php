@@ -96,6 +96,8 @@ class Affiliated_Links {
 		$this->load_dom_document( $content );
 		$links = $this->load_links();
 
+		if ( empty( $links ) ) return $content;
+
 		foreach ( $links as $key => $link ) {
 			$links[$key]['replace'] = $this->link_filter( $link );
 		}
