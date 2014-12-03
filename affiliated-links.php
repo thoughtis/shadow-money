@@ -21,12 +21,61 @@ class Affiliated_Links {
 	/**
 	 * Content Filters
 	 */
-	public function content_filters() {}
+	public function content_filters() {
+
+		$filters = array(
+			'the_content',
+			'the_content_feed',
+			'comment_text',
+			'comment_text_rss',
+		);
+
+		$filters = apply_filters( 'affiliated_content_filters', $filters );
+
+		if ( empty( $filters ) ) return;
+
+		foreach ( $filters as $filter ) {
+			add_filter( $filter, array( $this, 'content_filter' ) );
+		}
+
+	}
 
 	/**
 	 * Link Filters
 	 */
-	public function link_filters() {}
+	public function link_filters() {
+
+		$filters = array();
+
+		$filters = apply_filters( 'affiliated_link_filters', $filters );
+
+		if ( empty( $filters ) ) return;
+
+		foreach ( $filters as $filter ) {
+			add_filter( $filter, array( $this, 'link_filter' ) );
+		}
+
+	}
+
+	/**
+	 * Content Filter
+	 *
+	 * @param  string $content
+	 * @return string $content
+	 */
+	public function content_filter( $content ) {
+		return $content;
+	}
+
+	/**
+	 * Link Filter
+	 *
+	 * @param  string $link
+	 * @return string $link
+	 */
+	public function link_filter( $link ) {
+		return $link;
+	}
 
 	/**
 	 * Load DOMDocument
