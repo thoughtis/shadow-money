@@ -99,6 +99,7 @@ class Affiliated_Links {
 		if ( empty( $content ) ) return $content;
 
 		$this->load_dom_document( $content );
+		$links = $this->load_links();
 
 		return $content;
 
@@ -132,8 +133,21 @@ class Affiliated_Links {
 	}
 
 	/**
-	 * Find Links
+	 * Load Links from DOMDocument
+	 *
+	 * @return  array $links
 	 */
-	private function get_links() {}
+	private function load_links() {
+
+		$links = array();
+		$elements = $this->document->getElementsByTagName( 'a' );
+
+		foreach ( $elements as $link ) {
+			$links[] = $link->getAttribute( 'href' );
+		}
+
+		return $links;
+
+	}
 
 }
