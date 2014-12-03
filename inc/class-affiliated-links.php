@@ -67,23 +67,6 @@ class Affiliated_Links {
 	}
 
 	/**
-	 * Link Filters
-	 */
-	public function link_filters() {
-
-		$filters = array();
-
-		$filters = apply_filters( 'affiliated_link_filters', $filters );
-
-		if ( empty( $filters ) ) return;
-
-		foreach ( $filters as $filter ) {
-			add_filter( $filter, array( $this, 'link_filter' ) );
-		}
-
-	}
-
-	/**
 	 * Content Filter
 	 *
 	 * @param  string $content
@@ -117,7 +100,9 @@ class Affiliated_Links {
 	 * @return string $link
 	 */
 	public function link_filter( $link ) {
-		return $link;
+
+		return apply_filters( 'affiliated_link_filters', $link );
+
 	}
 
 	/**
