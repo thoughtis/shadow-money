@@ -53,6 +53,11 @@ class Affiliated_Links_Settings {
 		$this->add_sections();
 		$this->add_fields();
 
+		register_setting(
+			'affiliated_links_settings',
+			'affiliated_links_settings'
+		);
+
 		add_submenu_page(
 			'options-general.php',
 			'Affiliated Links Settings',
