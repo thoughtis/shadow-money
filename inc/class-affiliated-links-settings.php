@@ -107,7 +107,7 @@ class Affiliated_Links_Settings {
 				array( $this, $field['callback'] ),
 				'affiliated-links-settings',
 				$field['section'],
-				$field['args']
+				$field
 			);
 
 		}
