@@ -99,11 +99,15 @@ class Affiliated_Links {
 		if ( empty( $links ) ) return $content;
 
 		foreach ( $links as $key => $link ) {
-			$links[$key]['replace'] = $this->link_filter( $link['search'] );
+			$links[ $key ]['replace'] = $this->link_filter( $link['search'] );
 		}
 
 		foreach ( $links as $link ) {
-			$content = str_replace( $link['search'], $link['replace'], $content );
+			$content = str_replace( $link['search'], $link['replace'], $content, $replacements );
+
+			if ( $replacements === 0 ) {
+				$content = str_replace( htmlspecialchars( $link['search'] ), $link['replace'], $content );
+			}
 		}
 
 		return $content;
