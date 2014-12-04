@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Affiliated_Links_Settings {
 
 	/**
-	 * @var $instance Affiliated_Links
+	 * @var $instance Affiliated_Links_Settings
 	 * @access public
 	 */
 	public static $instance = null;
@@ -23,7 +23,7 @@ class Affiliated_Links_Settings {
 	/**
 	 * Get Instance of This Class
 	 *
-	 * @return Affiliated_Links
+	 * @return Affiliated_Links_Settings
 	 */
 	public static function instance() {
 
