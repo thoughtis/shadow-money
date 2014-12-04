@@ -117,6 +117,22 @@ class Affiliated_Links_Settings {
 	/**
 	 * Settings Page
 	 */
-	public function settings_page() {}
+	public function settings_page() {
+		?>
+		<div class="wrap">
+			<h2>Affiliated Links Settings</h2>
+			<form action="options.php" method="post">
+				<?php
+				wp_nonce_field( 'affiliated_links_settings', 'affiliated_links_settings_nonce', false );
+				settings_fields( 'affiliated_links_settings' );
+				do_settings_sections( 'affiliated-links-settings' );
+				?>
+				<p class="submit">
+					<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
+				</p>
+			</form>
+		</div>
+		<?php
+	}
 
 }
