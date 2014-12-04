@@ -5,6 +5,9 @@ use DOMDocument;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Affiliated Links
+ */
 class Affiliated_Links {
 
 	/**
