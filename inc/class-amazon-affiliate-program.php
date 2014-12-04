@@ -53,7 +53,7 @@ class Amazon_Affiliate_Program {
 			$link = $this->add_affiliate_code( $link );
 		}
 
-		return apply_filters( 'affiliated_link_filters', $link );
+		return $link;
 
 	}
 
