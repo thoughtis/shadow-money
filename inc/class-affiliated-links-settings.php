@@ -18,7 +18,11 @@ class Affiliated_Links_Settings {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {}
+	public function __construct() {
+
+		add_action( 'admin_menu', array( $this, 'admin_menu') );
+
+	}
 
 	/**
 	 * Get Instance of This Class
@@ -34,5 +38,26 @@ class Affiliated_Links_Settings {
 		return self::$instance;
 
 	}
+
+	/**
+	 * Admin Menu
+	 */
+	public function admin_menu() {
+
+		add_submenu_page(
+			'options-general.php',
+			'Affiliated Links Settings',
+			'Affiliated Links',
+			'manage_options',
+			'affiliated-links-settings',
+			array( $this, 'settings_page' )
+		);
+
+	}
+
+	/**
+	 * Settings Page
+	 */
+	public function settings_page() {}
 
 }
