@@ -45,6 +45,7 @@ class Affiliated_Links_Settings {
 	public function admin_menu() {
 
 		$this->add_sections();
+		$this->add_fields();
 
 		add_submenu_page(
 			'options-general.php',
@@ -79,6 +80,30 @@ class Affiliated_Links_Settings {
 				$section['title'],
 				$section['callback'],
 				'affiliated-links-settings'
+			);
+
+		}
+
+	}
+
+	/**
+	 * Add Settings Fields
+	 */
+	private function add_fields() {
+
+		$fields = array();
+
+		$fields = apply_filters( 'affiliated_links_settings_fields', $fields );
+
+		foreach ( $fields as $field ) {
+
+			add_settings_field(
+				$field['id'],
+				$field['title'],
+				$field['callback'],
+				'affiliated-links-settings',
+				$field['section'],
+				$field['args']
 			);
 
 		}
