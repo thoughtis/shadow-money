@@ -60,6 +60,8 @@ class Affiliated_Links_Settings {
 
 	/**
 	 * Add Settings Sections
+	 *
+	 * @see http://codex.wordpress.org/Function_Reference/add_settings_section
 	 */
 	private function add_sections() {
 
@@ -88,6 +90,8 @@ class Affiliated_Links_Settings {
 
 	/**
 	 * Add Settings Fields
+	 *
+	 * @see http://codex.wordpress.org/Function_Reference/add_settings_field
 	 */
 	private function add_fields() {
 
