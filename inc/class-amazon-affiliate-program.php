@@ -110,8 +110,6 @@ class Amazon_Affiliate_Program {
 	 */
 	public function add_affiliate_code( $link ) {
 
-		$og = $link;
-
 		$query = array();
 		$components = parse_url( html_entity_decode( $link ) );
 		$tag = $this->get_affiliate_tag( $components['host'] );
