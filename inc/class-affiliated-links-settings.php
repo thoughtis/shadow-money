@@ -104,7 +104,7 @@ class Affiliated_Links_Settings {
 			add_settings_field(
 				$field['id'],
 				$field['title'],
-				$field['callback'],
+				array( $this, $field['callback'] ),
 				'affiliated-links-settings',
 				$field['section'],
 				$field['args']
