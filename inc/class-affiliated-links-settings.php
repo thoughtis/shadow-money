@@ -44,6 +44,8 @@ class Affiliated_Links_Settings {
 	 */
 	public function admin_menu() {
 
+		$this->add_sections();
+
 		add_submenu_page(
 			'options-general.php',
 			'Affiliated Links Settings',
@@ -52,6 +54,34 @@ class Affiliated_Links_Settings {
 			'affiliated-links-settings',
 			array( $this, 'settings_page' )
 		);
+
+	}
+
+	/**
+	 * Add Settings Sections
+	 */
+	private function add_sections() {
+
+		$sections = array(
+			array(
+				'id' => 'affiliate-providers',
+				'title' => 'Affiliate Providers',
+				'callback' => '__return_false',
+			),
+		);
+
+		$sections = apply_filters( 'affiliated_links_settings_sections', $sections );
+
+		foreach ( $sections as $section ) {
+
+			add_settings_section(
+				$section['id'],
+				$section['title'],
+				$section['callback'],
+				'affiliated-links-settings'
+			);
+
+		}
 
 	}
 
