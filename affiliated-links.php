@@ -14,6 +14,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+require_once( __DIR__ . '/inc/class-amazon-affiliate-program.php' );
 require_once( __DIR__ . '/inc/class-affiliated-links.php' );
 
+Athletics\WordPress\Amazon_Affiliate_Program::instance();
 Athletics\WordPress\Affiliated_Links::instance();
