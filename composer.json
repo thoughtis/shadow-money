@@ -1,0 +1,13 @@
+{
+    "name": "athletics/affiliated-links",
+    "description": "WordPress plugin to filter content and add affiliate links.",
+    "homepage": "https://github.com/athletics/affiliated-links",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Athletics",
+            "homepage": "http://athleticsnyc.com/"
+        }
+    ]
+}
