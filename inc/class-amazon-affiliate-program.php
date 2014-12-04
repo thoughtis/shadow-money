@@ -60,7 +60,6 @@ class Amazon_Affiliate_Program {
 	/**
 	 * Is this an Amazon Link?
 	 *
-	 * @todo   check for all amazon domains
 	 * @param  string $link
 	 * @return boolean
 	 */
