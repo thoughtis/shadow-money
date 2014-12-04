@@ -16,6 +16,12 @@ class Affiliated_Links_Settings {
 	public static $instance = null;
 
 	/**
+	 * @var $options
+	 * @access private
+	 */
+	private $options = null;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
@@ -133,6 +139,22 @@ class Affiliated_Links_Settings {
 			</form>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Get Option
+	 *
+	 * @param  string $key
+	 * @return mixed $value
+	 */
+	private function get_option( $key ) {
+
+		if ( is_null( $this->options ) ) {
+			$this->options = get_option( 'affiliated_links_settings', array() );
+		}
+
+		return isset( $this->options[$key] ) ? $this->options[$key] : false;
+
 	}
 
 }
