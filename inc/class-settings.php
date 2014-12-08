@@ -23,6 +23,12 @@ class Settings {
 	private $options = null;
 
 	/**
+	 * @var $group
+	 * @access public
+	 */
+	public $group = 'shadow_money_settings';
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
