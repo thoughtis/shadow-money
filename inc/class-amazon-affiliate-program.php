@@ -23,6 +23,7 @@ class Amazon_Affiliate_Program {
 	 */
 	public function __construct() {
 
+		$this->add_settings();
 		add_filter( 'shadow_money_link_filters', array( $this, 'link_filter' ) );
 
 	}
@@ -222,6 +223,37 @@ class Amazon_Affiliate_Program {
 		}
 
 		return ( empty( $country ) || ! isset( $tags[ $country ] ) ) ? '' : $tags[ $country ];
+
+	}
+
+	/**
+	 * Add Settings
+	 */
+	private function add_settings() {
+
+		add_filter( 'shadow_money_settings_fields', function( $fields ) {
+
+			$fields[] = array(
+				'id' => 'amazon',
+				'title' => 'Amazon Affiliate Program',
+				'callback' => 'checkbox',
+				'section' => 'affiliate-providers',
+			);
+
+			return $fields;
+
+		} );
+
+		add_filter( 'shadow_money_settings_settings', function( $settings ) {
+
+			$settings[] = array(
+				'name' => 'amazon',
+				'callback' => 'esc_attr',
+			);
+
+			return $settings;
+
+		} );
 
 	}
 
