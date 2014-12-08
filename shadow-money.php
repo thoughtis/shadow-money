@@ -15,7 +15,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once( __DIR__ . '/inc/class-amazon-affiliate-program.php' );
+require_once( __DIR__ . '/inc/class-settings.php' );
 require_once( __DIR__ . '/inc/class-client.php' );
 
 Athletics\Shadow_Money\Amazon_Affiliate_Program::instance();
+Athletics\Shadow_Money\Settings::instance();
 Athletics\Shadow_Money\Client::instance();
