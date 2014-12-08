@@ -115,7 +115,7 @@ class Settings {
 
 		$fields = array();
 
-		$fields = apply_filters( 'shadow_money_settings_fields', $fields );
+		$fields = apply_filters( "{$this->group}_fields", $fields );
 
 		foreach ( $fields as $field ) {
 
@@ -123,7 +123,7 @@ class Settings {
 				$field['id'],
 				$field['title'],
 				array( $this, $field['callback'] ),
-				'shadow-money-settings',
+				$this->group,
 				$field['section'],
 				$field
 			);
