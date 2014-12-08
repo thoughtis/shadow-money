@@ -1,6 +1,6 @@
 # Affiliated Links for WordPress
 
-Plugin to add affiliate codes to links in post and page content. Provides filters to use on other content types.
+A WordPress plugin to find links for affiliate partners in post content and add their tracking tags. The plugin also provides filters to use on other fields or content types.
 
 ## Supported Affiliate Programs
 
@@ -10,9 +10,9 @@ Plugin to add affiliate codes to links in post and page content. Provides filter
 
 ### `affiliated_content_locations`
 
-Locations to search for links. Should be mostly valid HTML.
+Locations to search for links. Should be (mostly) valid HTML.
 
-#### Default Value
+**Default:**
 
 ```php
 $locations = array(
@@ -23,29 +23,33 @@ $locations = array(
 );
 ```
 
+---------------------------------------
+
 ### `affiliated_link_locations`
 
 Locations to replace links. Good for adding affiliate links to custom post meta that are known to be links.
 
-#### Default Value
+**Default:**
 
 ```php
 $locations = array();
 ```
 
+---------------------------------------
+
 ### `affiliated_link_filters`
 
 Filters to run links through to add affiliate codes. Used internally to add new affiliate programs.
 
-#### Default Value
+**Default:** None.
 
-None.
+---------------------------------------
 
 ### `affiliated_amazon_affiliate_tags`
 
 List of Amazon affiliate tags per country.
 
-#### Default Value
+**Default:**
 
 ```php
 $tags = array(
@@ -61,7 +65,7 @@ $tags = array(
 );
 ```
 
-#### Example Usage
+**Example:**
 
 ```php
 add_filter( 'affiliated_amazon_affiliate_tags', function( $tags ) {
