@@ -1,4 +1,4 @@
-# Affiliated Links for WordPress
+# Shadow Money for WordPress
 
 A WordPress plugin to find links for affiliate partners in post content and add their tracking tags. The plugin also provides filters to use on other fields or content types.
 
@@ -8,7 +8,7 @@ A WordPress plugin to find links for affiliate partners in post content and add 
 
 ## Filters
 
-### `affiliated_content_locations`
+### `shadow_money_content_locations`
 
 Locations to search for links. Should be (mostly) valid HTML.
 
@@ -25,7 +25,7 @@ $locations = array(
 
 ---------------------------------------
 
-### `affiliated_link_locations`
+### `shadow_money_link_locations`
 
 Locations to replace links. Good for adding affiliate links to custom post meta that are known to be links.
 
@@ -37,7 +37,7 @@ $locations = array();
 
 ---------------------------------------
 
-### `affiliated_link_filters`
+### `shadow_money_link_filters`
 
 Filters to run links through to add affiliate codes. Used internally to add new affiliate programs.
 
@@ -45,7 +45,7 @@ Filters to run links through to add affiliate codes. Used internally to add new 
 
 ---------------------------------------
 
-### `affiliated_amazon_affiliate_tags`
+### `shadow_money_amazon_affiliate_tags`
 
 List of Amazon affiliate tags per country.
 
@@ -68,7 +68,7 @@ $tags = array(
 **Example:**
 
 ```php
-add_filter( 'affiliated_amazon_affiliate_tags', function( $tags ) {
+add_filter( 'shadow_money_amazon_affiliate_tags', function( $tags ) {
 
 	$tags['us'] = 'xxxxxxxxxx-20';
 

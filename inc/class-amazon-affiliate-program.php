@@ -1,6 +1,6 @@
 <?php
 
-namespace Athletics\WordPress;
+namespace Athletics\Shadow_Money;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @link https://affiliate-program.amazon.com
  */
+
 class Amazon_Affiliate_Program {
 
 	/**
@@ -22,14 +23,14 @@ class Amazon_Affiliate_Program {
 	 */
 	public function __construct() {
 
-		add_filter( 'affiliated_link_filters', array( $this, 'link_filter' ) );
+		add_filter( 'shadow_money_link_filters', array( $this, 'link_filter' ) );
 
 	}
 
 	/**
 	 * Get Instance of This Class
 	 *
-	 * @return Affiliate_Links
+	 * @return Amazon_Affiliate_Program
 	 */
 	public static function instance() {
 
@@ -151,7 +152,7 @@ class Amazon_Affiliate_Program {
 			'us' => '',
 		);
 
-		$tags = apply_filters( 'affiliated_amazon_affiliate_tags', $tags );
+		$tags = apply_filters( 'shadow_money_amazon_affiliate_tags', $tags );
 
 		$country = '';
 

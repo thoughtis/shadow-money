@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: Affiliated Links
- * Plugin URI: http://github.com/athletics/affiliated-links
+ * Plugin Name: Shadow Money
+ * Plugin URI: http://github.com/athletics/shadow-money
  * Description: Add affiliate codes to links in post and page content
  * Version: 0.1.0
  * Author: Athletics
@@ -15,7 +15,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once( __DIR__ . '/inc/class-amazon-affiliate-program.php' );
-require_once( __DIR__ . '/inc/class-affiliated-links.php' );
+require_once( __DIR__ . '/inc/class-client.php' );
 
-Athletics\WordPress\Amazon_Affiliate_Program::instance();
-Athletics\WordPress\Affiliated_Links::instance();
+Athletics\Shadow_Money\Amazon_Affiliate_Program::instance();
+Athletics\Shadow_Money\Client::instance();

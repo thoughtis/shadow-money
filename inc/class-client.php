@@ -1,17 +1,18 @@
 <?php
 
-namespace Athletics\WordPress;
+namespace Athletics\Shadow_Money;
 use DOMDocument;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Affiliated Links
+ * Shadow Money Client
  */
-class Affiliated_Links {
+
+class Client {
 
 	/**
-	 * @var $instance Affiliated_Links
+	 * @var $instance Client
 	 * @access public
 	 */
 	public static $instance = null;
@@ -35,7 +36,7 @@ class Affiliated_Links {
 	/**
 	 * Get Instance of This Class
 	 *
-	 * @return Affiliated_Links
+	 * @return Client
 	 */
 	public static function instance() {
 
@@ -59,7 +60,7 @@ class Affiliated_Links {
 			'comment_text_rss',
 		);
 
-		$locations = apply_filters( 'affiliated_content_locations', $locations );
+		$locations = apply_filters( 'shadow_money_content_locations', $locations );
 
 		if ( empty( $locations ) ) return;
 
@@ -76,7 +77,7 @@ class Affiliated_Links {
 
 		$locations = array();
 
-		$locations = apply_filters( 'affiliated_link_locations', $locations );
+		$locations = apply_filters( 'shadow_money_link_locations', $locations );
 
 		if ( empty( $locations ) ) return;
 
@@ -125,7 +126,7 @@ class Affiliated_Links {
 	 */
 	public function link_filter( $link ) {
 
-		return apply_filters( 'affiliated_link_filters', $link );
+		return apply_filters( 'shadow_money_link_filters', $link );
 
 	}
 
