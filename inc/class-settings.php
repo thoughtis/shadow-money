@@ -141,9 +141,9 @@ class Settings {
 			<h2>Shadow Money Settings</h2>
 			<form action="options.php" method="post">
 				<?php
-				wp_nonce_field( 'shadow_money_settings', 'shadow_money_settings_nonce', false );
-				settings_fields( 'shadow_money_settings' );
-				do_settings_sections( 'shadow-money-settings' );
+				wp_nonce_field( $this->group, "{$this->group}_nonce", false );
+				settings_fields( $this->group );
+				do_settings_sections( $this->group );
 				submit_button();
 				?>
 			</form>
