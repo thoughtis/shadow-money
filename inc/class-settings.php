@@ -33,7 +33,8 @@ class Settings {
 	 */
 	public function __construct() {
 
-		add_action( 'admin_menu', array( $this, 'admin_menu') );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 	}
 
@@ -57,22 +58,47 @@ class Settings {
 	 */
 	public function admin_menu() {
 
-		$this->add_sections();
-		$this->add_fields();
-
-		register_setting(
-			'shadow_money_settings',
-			'shadow_money_settings'
-		);
-
 		add_submenu_page(
 			'options-general.php',
 			'Shadow Money Settings',
 			'Shadow Money',
 			'manage_options',
-			'shadow-money-settings',
+			$this->group,
 			array( $this, 'settings_page' )
 		);
+
+	}
+
+	/**
+	 * Admin Init
+	 */
+	public function admin_init() {
+
+		$this->register_settings();
+		$this->add_sections();
+		$this->add_fields();
+
+	}
+
+	/**
+	 * Register Settings
+	 *
+	 * @see http://codex.wordpress.org/Function_Reference/register_setting
+	 */
+	private function register_settings() {
+
+		$settings = array();
+
+		$settings = apply_filters( "{$this->group}_settings", $settings );
+
+		foreach ( $settings as $setting ) {
+
+			register_setting(
+				$this->group,
+				$setting['name'],
+				array( $this, 'sanitize' )
+			);
+		}
 
 	}
 
