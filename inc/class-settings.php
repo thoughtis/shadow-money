@@ -1,16 +1,17 @@
 <?php
 
-namespace Athletics\WordPress;
+namespace Athletics\Shadow_Money;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Settings Page
  */
-class Affiliated_Links_Settings {
+
+class Settings {
 
 	/**
-	 * @var $instance Affiliated_Links_Settings
+	 * @var $instance Settings
 	 * @access public
 	 */
 	public static $instance = null;
@@ -33,7 +34,7 @@ class Affiliated_Links_Settings {
 	/**
 	 * Get Instance of This Class
 	 *
-	 * @return Affiliated_Links_Settings
+	 * @return Settings
 	 */
 	public static function instance() {
 
@@ -54,16 +55,16 @@ class Affiliated_Links_Settings {
 		$this->add_fields();
 
 		register_setting(
-			'affiliated_links_settings',
-			'affiliated_links_settings'
+			'shadow_money_settings',
+			'shadow_money_settings'
 		);
 
 		add_submenu_page(
 			'options-general.php',
-			'Affiliated Links Settings',
-			'Affiliated Links',
+			'Shadow Money Settings',
+			'Shadow Money',
 			'manage_options',
-			'affiliated-links-settings',
+			'shadow-money-settings',
 			array( $this, 'settings_page' )
 		);
 
@@ -84,7 +85,7 @@ class Affiliated_Links_Settings {
 			),
 		);
 
-		$sections = apply_filters( 'affiliated_links_settings_sections', $sections );
+		$sections = apply_filters( 'shadow_money_settings_sections', $sections );
 
 		foreach ( $sections as $section ) {
 
@@ -92,7 +93,7 @@ class Affiliated_Links_Settings {
 				$section['id'],
 				$section['title'],
 				$section['callback'],
-				'affiliated-links-settings'
+				'shadow-money-settings'
 			);
 
 		}
@@ -108,7 +109,7 @@ class Affiliated_Links_Settings {
 
 		$fields = array();
 
-		$fields = apply_filters( 'affiliated_links_settings_fields', $fields );
+		$fields = apply_filters( 'shadow_money_settings_fields', $fields );
 
 		foreach ( $fields as $field ) {
 
@@ -116,7 +117,7 @@ class Affiliated_Links_Settings {
 				$field['id'],
 				$field['title'],
 				array( $this, $field['callback'] ),
-				'affiliated-links-settings',
+				'shadow-money-settings',
 				$field['section'],
 				$field
 			);
@@ -131,12 +132,12 @@ class Affiliated_Links_Settings {
 	public function settings_page() {
 		?>
 		<div class="wrap">
-			<h2>Affiliated Links Settings</h2>
+			<h2>Shadow Money Settings</h2>
 			<form action="options.php" method="post">
 				<?php
-				wp_nonce_field( 'affiliated_links_settings', 'affiliated_links_settings_nonce', false );
-				settings_fields( 'affiliated_links_settings' );
-				do_settings_sections( 'affiliated-links-settings' );
+				wp_nonce_field( 'shadow_money_settings', 'shadow_money_settings_nonce', false );
+				settings_fields( 'shadow_money_settings' );
+				do_settings_sections( 'shadow-money-settings' );
 				?>
 				<p class="submit">
 					<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
@@ -170,7 +171,7 @@ class Affiliated_Links_Settings {
 	private function get_option( $key ) {
 
 		if ( is_null( $this->options ) ) {
-			$this->options = get_option( 'affiliated_links_settings', array() );
+			$this->options = get_option( 'shadow_money_settings', array() );
 		}
 
 		return isset( $this->options[$key] ) ? $this->options[$key] : false;
