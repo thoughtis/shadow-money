@@ -144,10 +144,8 @@ class Settings {
 				wp_nonce_field( 'shadow_money_settings', 'shadow_money_settings_nonce', false );
 				settings_fields( 'shadow_money_settings' );
 				do_settings_sections( 'shadow-money-settings' );
+				submit_button();
 				?>
-				<p class="submit">
-					<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
-				</p>
 			</form>
 		</div>
 		<?php
