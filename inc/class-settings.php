@@ -158,12 +158,9 @@ class Settings {
 	 */
 	public function checkbox( $args ) {
 
-		$checked = $this->get_option( "{$args['section']}[{$args['id']}]" );
+		$option = $this->get_option( "{$args['section']}[{$args['id']}]" );
 		?>
-		<label>
-			<input type="checkbox" name="<?php echo esc_attr( $args['section'] ) ?>[<?php echo esc_attr( $args['id'] ); ?>]" <?php checked( $checked ); ?>>
-			<?php echo esc_html( $option['title'] ); ?>
-		</label>
+		<input type="checkbox" name="<?php echo esc_attr( $args['id'] ); ?>" value="1" <?php checked( $option, 1 ); ?>>
 		<?php
 
 	}
