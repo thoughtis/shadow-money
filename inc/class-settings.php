@@ -91,7 +91,7 @@ class Settings {
 			),
 		);
 
-		$sections = apply_filters( 'shadow_money_settings_sections', $sections );
+		$sections = apply_filters( "{$this->group}_sections", $sections );
 
 		foreach ( $sections as $section ) {
 
@@ -99,7 +99,7 @@ class Settings {
 				$section['id'],
 				$section['title'],
 				$section['callback'],
-				'shadow-money-settings'
+				$this->group
 			);
 
 		}
