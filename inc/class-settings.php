@@ -177,7 +177,7 @@ class Settings {
 	private function get_option( $key ) {
 
 		if ( is_null( $this->options ) ) {
-			$this->options = get_option( 'shadow_money_settings', array() );
+			$this->options = get_option( $this->group, array() );
 		}
 
 		return isset( $this->options[$key] ) ? $this->options[$key] : false;
