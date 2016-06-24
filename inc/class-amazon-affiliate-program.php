@@ -67,7 +67,7 @@ class Amazon_Affiliate_Program {
 	private function is_amazon_link( $link ) {
 
 		$regex =  '/' .
-			'http:\/\/' .
+			'https?:\/\/' .
 				'(' .
 					'.*amazon\.' .
 						'(' .
