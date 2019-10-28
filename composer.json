@@ -1,7 +1,7 @@
 {
     "name": "athletics/shadow-money",
     "description": "WordPress plugin to filter content and add affiliate links.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/athletics/shadow-money",
     "type": "wordpress-plugin",
     "license": "MIT",
