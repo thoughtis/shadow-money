@@ -28,8 +28,8 @@ class Client {
 	 */
 	public function __construct() {
 
-		add_action('init', array( $this, 'content_filter_locations'));
-		add_action('init', array( $this, 'link_filter_locations' ));
+		add_action( 'init', array( $this, 'content_filter_locations' ) );
+		add_action( 'init', array( $this, 'link_filter_locations' ) );
 
 	}
 

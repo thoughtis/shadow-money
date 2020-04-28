@@ -4,7 +4,7 @@
  * Plugin Name: Shadow Money
  * Plugin URI: http://github.com/athletics/shadow-money
  * Description: Add affiliate codes to links in post and page content
- * Version: 0.1.3
+ * Version: 0.1.2
  * Author: Athletics
  * Author URI: http://athleticsnyc.com
  * Copyright: 2014 Athletics
