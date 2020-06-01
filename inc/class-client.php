@@ -102,9 +102,17 @@ class Client {
 
 		if ( empty( $links ) ) return $content;
 
-		foreach ( $links as $key => $link ) {
-			$links[ $key ]['replace'] = $this->link_filter( $link['search'] );
-		}
+		$links = array_values( array_unique( $links ) );
+
+		$links = array_map(
+			function( $link ) {
+				return array(
+					'search'  => $link,
+					'replace' => $this->link_filter( $link )
+				);
+			},
+			$links
+		);
 
 		foreach ( $links as $link ) {
 			$content = str_replace( $link['search'], $link['replace'], $content, $replacements );
@@ -158,9 +166,7 @@ class Client {
 		$elements = $this->document->getElementsByTagName( 'a' );
 
 		foreach ( $elements as $link ) {
-			$links[] = array(
-				'search' => $link->getAttribute( 'href' ),
-			);
+			$links[] = $link->getAttribute( 'href' );
 		}
 
 		return $links;
